@@ -20,7 +20,7 @@ Modulele pot fi instalate folosind comanda "pip install" sau "pip3 install" urma
 Comenzile pentru rularea testelor sunt:
 
 behave (ruleaza toate testele)
-behave --tags=@<insert-tag-here> -f json -o report.json (ruleaza doar testele cu tagul specificat)
+behave --tags=@<insert-tag-here> (ruleaza doar testele cu tagul specificat)
 
 
 Rezultatele testelor pot fi gasite in rapoartele din folderul
