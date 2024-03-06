@@ -13,6 +13,7 @@ class TablesPage(BasePage):
         self.driver.get(self.URL_TABLES)
 
     def click_first_name_btn(self):
+        self.driver.execute_script("arguments[0].scrollIntoView();", self.find(self.BUTTON_FIRST_NAME))
         self.click_btn(self.BUTTON_FIRST_NAME)
 
     def are_rows_sorted_by_first_name(self):

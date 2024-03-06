@@ -30,10 +30,6 @@ class BasePage(Browser):
             self.click_btn(self.BUTTON_CONFIRM_COOKIES)
             self.cookies_confirmed = True
 
-    def select_by_text(self, locator, text):
-        dropdown = Select(self.find(locator))
-        dropdown.select_by_visible_text(text)
-
     def url_verification(self, expected_url):
         return self.driver.current_url == expected_url
 

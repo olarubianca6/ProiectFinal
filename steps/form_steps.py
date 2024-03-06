@@ -33,12 +33,12 @@ def step_impl(context):
 
 @when('I select a state')
 def step_impl(context):
-    context.form_page.select_state("NCR")
+    context.form_page.select_state()
 
 
 @when('I select a city')
 def step_impl(context):
-    context.form_page.select_city("Delhi")
+    context.form_page.select_city()
 
 
 @when('I click the "Submit" button')

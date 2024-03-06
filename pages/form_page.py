@@ -1,4 +1,6 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 from pages.base_page import BasePage
 
@@ -13,10 +15,11 @@ class FormPage(BasePage):
     INPUT_MOBILE_NR = (By.XPATH, '//input[@id="userNumber"]')
     SELECT_STATE = (By.ID, "state")
     SELECT_CITY = (By.ID, "city")
+    DROPDOWN = (By.CLASS_NAME, "css-26l3qy-menu")
     BUTTON_SUBMIT = (By.XPATH, '//button[@id="submit"]')
 
     POP_UP_FORM = (By.CLASS_NAME, "modal-content")
-    FORM_TITLE = (By.CLASS_NAME, "modal-title h4")
+    FORM_TITLE = (By.CLASS_NAME, "modal-title")
 
 
     def open(self):
@@ -35,16 +38,21 @@ class FormPage(BasePage):
     def add_mobile_nr(self, number):
         self.type(self.INPUT_MOBILE_NR, number)
 
-    def select_state(self, state):
-        self.select_by_text(self.SELECT_STATE, state)
+    def select_state(self):
+        self.click_btn(self.SELECT_STATE)
+        WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(self.DROPDOWN))
+        self.click_btn(self.DROPDOWN)
 
-    def select_city(self, city):
-        self.select_by_text(self.SELECT_CITY, city)
+    def select_city(self):
+        self.click_btn(self.SELECT_CITY)
+        WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(self.DROPDOWN))
+        self.click_btn(self.DROPDOWN)
 
     def submit_form(self):
         self.click_btn(self.BUTTON_SUBMIT)
 
     def is_form_displayed(self):
+        WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(self.POP_UP_FORM))
         return self.find(self.POP_UP_FORM).is_displayed()
 
     def is_form_title_correct(self, expected_text):

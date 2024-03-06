@@ -1,8 +1,5 @@
-ProiectFinal este o colectie de teste automate pentru demoqua.com,
-c
-
-Testele au fost create pentru verificarea unor functionalitati precum alerte web, butoane de diferite tipuri,
-formulare si sortare de tabele. Site-ul contine si un magazin de carti din care au fost testate paginile de
+ProiectFinal este o colectie de teste automate pentru demoqa.com, create pentru verificarea unor functionalitati precum alerte web,
+butoane de diferite tipuri, formulare si sortare de tabele. Site-ul contine si un magazin de carti din care au fost testate paginile de
 login si autentificare, afisarea elementelor pe pagina principala si cautarea acestora.
 
 
@@ -23,7 +20,7 @@ Modulele pot fi instalate folosind comanda "pip install" sau "pip3 install" urma
 Comenzile pentru rularea testelor sunt:
 
 behave (ruleaza toate testele)
-behave --tags=@<insert-tag-here> -f json -o report.json (ruleaza doar testele cu tagul specificat)
+behave --tags=@<insert-tag-here> (ruleaza doar testele cu tagul specificat)
 
 
 Rezultatele testelor pot fi gasite in rapoartele din folderul
