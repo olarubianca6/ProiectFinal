@@ -17,5 +17,3 @@ Feature: Practice Form
     And I click the "Submit" button
     Then Pop-up with the form appears
     And The title is "Thanks for submitting the form"
-
-# select function error - state and city dropdowns are not select elements, can't find them in code otherwise
