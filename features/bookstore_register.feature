@@ -14,7 +14,7 @@ Feature: Register Page
     When I click the register button
     Then All four required inputs are marked as invalid
 
-   @sanity
+   @smoke
    Scenario Outline: I register a new account
     When I type "<firstname>" in the firstname input
     And I type "<lastname>" in the lastname input
