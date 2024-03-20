@@ -13,13 +13,22 @@ class BookstoreHomePage(BasePage):
     def open(self):
         self.driver.get(self.URL_HOME)
 
+    def url_verification(self):
+        self.check_url(self.URL_HOME)
+
     def are_all_items_displayed(self):
         gridcells = self.driver.find_elements(*self.GRID_CELLS_WITH_TEXT)
         nr_of_items = len(gridcells)//2
         assert nr_of_items == 8, "Items not displayed correctly"
 
-    def is_search_error_displayed(self):
-        return self.find(self.ERROR_SEARCH).is_displayed()
+    def search_nonexisting_item(self):
+        self.set_search_term("test")
 
-    def is_search_result_correct(self, expected_text):
-        assert expected_text == self.get_text(self.SEARCH_RESULT), "Search result incorrect"
+    def is_search_error_displayed(self):
+        self.is_element_displayed(self.ERROR_SEARCH)
+
+    def search_existing_item(self):
+        self.set_search_term("git")
+
+    def is_search_result_correct(self):
+        assert self.get_text(self.SEARCH_RESULT) == "Git Pocket Guide", "Search result incorrect"

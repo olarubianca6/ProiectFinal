@@ -3,8 +3,11 @@ Feature: Book Store home page
 
   Background: I open the Book Store Home Page
     Given I am on the bookstore home page
-    And The URL is "https://demoqa.com/books"
-    And I confirm cookies
+
+  @sanity
+  Scenario: I verify the page URL and confirm cookies
+    Then The URL is "<url>"
+    #And I confirm cookies
 
   Scenario: All items are displayed
     Then 8 books are displayed

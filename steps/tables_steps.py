@@ -6,11 +6,6 @@ def step_impl(context):
     context.tables_page.open()
 
 
-@given('The URL is "https://demoqa.com/webtables"')
-def step_impl(context):
-    context.tables_page.url_verification("https://demoqa.com/webtables")
-
-
 @when('I click the "First Name" button')
 def step_impl(context):
     context.tables_page.click_first_name_btn()

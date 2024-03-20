@@ -12,6 +12,9 @@ class TablesPage(BasePage):
     def open(self):
         self.driver.get(self.URL_TABLES)
 
+    def url_verification(self):
+        self.check_url(self.URL_TABLES)
+
     def click_first_name_btn(self):
         self.driver.execute_script("arguments[0].scrollIntoView();", self.find(self.BUTTON_FIRST_NAME))
         self.click_btn(self.BUTTON_FIRST_NAME)

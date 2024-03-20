@@ -3,8 +3,11 @@ Feature: Buttons
 
   Background: I open the Buttons page
     Given I am on the Buttons page
-    And The URL is "https://demoqa.com/buttons"
-    And I confirm cookies
+
+  @sanity
+  Scenario: I verify the page URL and confirm cookies
+    Then The URL is "<url>"
+    #And I confirm cookies
 
   @sanity
   Scenario: I double click the double click button

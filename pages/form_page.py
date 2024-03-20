@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
 from pages.base_page import BasePage
 
@@ -21,22 +21,24 @@ class FormPage(BasePage):
     POP_UP_FORM = (By.CLASS_NAME, "modal-content")
     FORM_TITLE = (By.CLASS_NAME, "modal-title")
 
-
     def open(self):
         self.driver.get(self.URL_FORM_PAGE)
 
-    def add_first_name(self, first_name):
-        self.type(self.INPUT_FIRST_NAME, first_name)
+    def url_verification(self):
+        self.check_url(self.URL_FORM_PAGE)
 
-    def add_last_name(self, last_name):
-        self.type(self.INPUT_LAST_NAME, last_name)
+    def add_first_name(self):
+        self.type(self.INPUT_FIRST_NAME, "TestFirstName")
+
+    def add_last_name(self):
+        self.type(self.INPUT_LAST_NAME, "TestLastName")
 
     def select_gender(self):
         self.driver.execute_script("arguments[0].scrollIntoView();", self.find(self.SELECT_GENDER))
         self.click_btn(self.SELECT_GENDER)
 
-    def add_mobile_nr(self, number):
-        self.type(self.INPUT_MOBILE_NR, number)
+    def add_mobile_nr(self):
+        self.type(self.INPUT_MOBILE_NR, "1234567890")
 
     def select_state(self):
         self.click_btn(self.SELECT_STATE)
@@ -53,8 +55,7 @@ class FormPage(BasePage):
 
     def is_form_displayed(self):
         WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(self.POP_UP_FORM))
-        return self.find(self.POP_UP_FORM).is_displayed()
+        self.is_element_displayed(self.POP_UP_FORM)
 
-    def is_form_title_correct(self, expected_text):
-        assert expected_text == self.get_text(self.FORM_TITLE), "Form title incorrect"
-
+    def is_form_title_correct(self):
+        assert self.get_text(self.FORM_TITLE) == "Thanks for submitting the form", "Form title incorrect"

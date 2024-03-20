@@ -3,8 +3,11 @@ Feature: WebTables
 
   Background: I open the WebTables page
     Given I am on the WebTables page
-    And The URL is "https://demoqa.com/webtables"
-    And I confirm cookies
+
+  @sanity
+  Scenario: I verify the page URL and confirm cookies
+    Then The URL is "<url>"
+    #And I confirm cookies
 
   @smoke
   Scenario: I sort the table by first name

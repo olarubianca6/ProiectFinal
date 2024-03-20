@@ -14,6 +14,9 @@ class BookstoreLoginPage(BasePage):
     def open(self):
         self.driver.get(self.URL_LOGIN)
 
+    def url_verification(self):
+        self.check_url(self.URL_LOGIN)
+
     def add_username(self, username):
         self.type(self.INPUT_USERNAME, username)
 
@@ -24,4 +27,4 @@ class BookstoreLoginPage(BasePage):
         self.click_btn(self.BUTTON_LOGIN)
 
     def is_error_msg_displayed(self):
-        return self.find(self.LOGIN_ERROR_MSG).is_displayed()
+        self.is_element_displayed(self.LOGIN_ERROR_MSG)

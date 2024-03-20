@@ -3,8 +3,11 @@ Feature: Login Page
 
   Background: I open the Login page
     Given I am on the Login page
-    And The URL is "https://demoqa.com/login"
-    And I confirm cookies
+
+  @sanity
+  Scenario: I verify the page URL and confirm cookies
+    Then The URL is "<url>"
+    #And I confirm cookies
 
   @negative @smoke
   Scenario Outline: I try to log in with unregistered account

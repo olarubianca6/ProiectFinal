@@ -1,28 +1,25 @@
-ProiectFinal este o colectie de teste automate pentru demoqa.com, create pentru verificarea unor functionalitati precum alerte web,
-butoane de diferite tipuri, formulare si sortare de tabele. Site-ul contine si un magazin de carti din care au fost testate paginile de
-login si autentificare, afisarea elementelor pe pagina principala si cautarea acestora.
+ProiectFinal is a collection of automated tests for demoqa.com, made to verify functionalities like web alerts,
+different types of buttons, forms and table sorting.
+The site also has a bookstore that was tested through the home, login and register pages.
 
 
-Pentru rularea acestor teste, aveti nevoie de urmatoarele aplicatii/module Python:
-
+To run these tests you will need the following apps/Python modules:
 Google Chrome
 Python 3
 Selenium
 Behave
 Allure
 
-Modulele pot fi instalate folosind comanda "pip install" sau "pip3 install" urmata de:
+The modules can be installed using "pip install" or "pip3 install" followed by:
 "selenium"
 "behave"
 "allure-behave"
 
 
-Comenzile pentru rularea testelor sunt:
+You can run the tests using the following commands:
+behave (runs all tests)
+behave --tags=@<insert-tag-here> (only runs the tests that have the specified tag)
 
-behave (ruleaza toate testele)
-behave --tags=@<insert-tag-here> (ruleaza doar testele cu tagul specificat)
 
-
-Rezultatele testelor pot fi gasite in rapoartele din folderul
-"allure_behave.formatter:AllureFormatter.output",
-care se creaza automat dupa rulare in folderul principal al proiectului.
+The automatically generated reports with the test results can be found in the
+"allure_behave.formatter:AllureFormatter.output" folder.
